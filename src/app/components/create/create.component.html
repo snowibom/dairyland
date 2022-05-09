@@ -1,0 +1,57 @@
+<br>
+<div>
+  <label>No. <input style="width:2rem;" [(ngModel)]="pkmnNo" (keyup)="getPkmn(pkmnNo)"></label>
+  &nbsp;
+  <span *ngIf="pkmn">{{pkmn.Name}}</span>
+  &nbsp;
+  <label>Lv <input style="width:2rem;" [(ngModel)]="lv" placeholder="{{pkmn ? pkmn.HD : '--'}}"></label>
+</div>
+<br>{{pkmn.HD}}
+<div>
+  <strong>Hp</strong>&nbsp;{{( lv ? lv : pkmn.HD ) * 5 + ( lv ? lv : pkmn.HD ) * pkmn.Hp__1}}
+  <strong>Def</strong>&nbsp;{{def}}
+  <strong>Res</strong>&nbsp;{{res}}
+</div>
+<br>
+<div *ngIf="pkmn">
+  <div>
+    <img alt="{{pkmn.Name}}" src="assets/images/pokemon/{{pkmn.Number}}.png">
+  </div>
+  <br>
+  <table style="text-align:center">
+    <tr>
+      <th>HP</th>
+      <th>ATK</th>
+      <th>DEF</th>
+      <th>SPL</th>
+      <th>SDF</th>
+      <th>SPD</th>
+    </tr>
+    <tr>
+      <td>{{pkmn.Health}}</td>
+      <td>{{pkmn.Attack}}</td>
+      <td>{{pkmn.Defense}}</td>
+      <td>{{pkmn.Special}}</td>
+      <td>{{pkmn.SplDef}}</td>
+      <td>{{pkmn.Speed}}</td>
+    </tr>
+    <tr>
+      <td>(<span *ngIf="pkmn.Hp__1>=0">+</span>{{pkmn.Hp__1}})</td>
+      <td>(<span *ngIf="pkmn.Atk>=0">+</span>{{pkmn.Atk}})</td>
+      <td>(<span *ngIf="pkmn.Def>=0">+</span>{{pkmn.Def}})</td>
+      <td>(<span *ngIf="pkmn.Spl>=0">+</span>{{pkmn.Spl}})</td>
+      <td>(<span *ngIf="pkmn.SDf>=0">+</span>{{pkmn.SDf}})</td>
+      <td>(<span *ngIf="pkmn.Spd>=0">+</span>{{pkmn.Spd}})</td>
+    </tr>
+  </table>
+</div>
+<!-- <p>
+  <strong>Tackle: </strong>
+  <span *ngIf="pkmn.Atk!=-2"><span *ngIf="pkmn.Atk>=-2">+</span>{{pkmn.Atk+2}}</span>,
+  1d6<span *ngIf="pkmn.Atk!=0"><span *ngIf="pkmn.Atk>=0">+</span>{{pkmn.Atk}}</span> Normal (Phys)
+</p> -->
+<p>
+  <strong>Thunder Shock: </strong>
+  <span *ngIf="pkmn.Spl!=-2"><span *ngIf="pkmn.Spl>=-2">+</span>{{pkmn.Spl+2}}</span>,
+  1d6<span *ngIf="pkmn.Spl!=0"><span *ngIf="pkmn.Spl>=0">+</span>{{pkmn.Spl}}</span> Electric (Spec)
+</p>

@@ -1,0 +1,13 @@
+<h1>Trainers</h1>
+<div>
+  <label class="p-r-1" for="trainer">Search:</label>
+  <input id="trainer" (keyup)="performFilter()" [(ngModel)]="listFilter.name">
+</div>
+<div class="grid-container">
+  <div class="grid-4 grid-sm-2 p-1 m-2 pos-relative" *ngFor="let trainer of filteredTrainers">
+    <div title="{{trainer.name}}">
+      <img alt="{{trainer.name}}" class="image" src="assets/images/trainers/{{trainer.name}}.png">
+      <p class="text-center">{{trainer.name}}</p>
+    </div>
+  </div>
+</div>

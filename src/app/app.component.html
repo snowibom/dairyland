@@ -1,0 +1,19 @@
+<button (click)="toggleMenu()" *ngIf="menu" class="menu-screen"></button>
+<header class="main-header bg-dark">
+  <div class="container grid-container">
+    <a routerLink="/" class="button grid-item">Dairyland</a>
+  <nav class="grid-item">
+    <button (click)="toggleMenu()" [class.open]="menu" class="button menu-button">Menu</button>
+      <span [class.open]="menu" class="menu">
+        <a (click)="toggleMenu()" routerLink="create" class="button">Create a Character</a>
+        <a (click)="toggleMenu()" routerLink="manage" class="button">Manage Party</a>
+        <a (click)="toggleMenu()" routerLink="trainers" class="button">Trainers</a>
+        <a (click)="toggleMenu()" routerLink="pokemon" class="button">Pokemon</a>
+      </span>
+    </nav>
+  </div>
+  
+</header>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

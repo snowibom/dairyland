@@ -1,0 +1,19 @@
+<h1>Pokemon</h1>
+<div>
+  <span>Search</span>
+  <label class="p-r-1 p-l-2" for="pkmn-name">Name:</label>
+  <input id="pkmn-name" [(ngModel)]="listFilter.Name" (keyup)="performFilter()" placeholder="Name">
+  <label class="p-r-1 p-l-2" for="pkmn-type1">Type:</label>
+  <select id="pkmn-type" [(ngModel)]="listFilter.Type1" (change)="performFilter()">
+    <option value="" selected>Type</option>
+    <option *ngFor="let type of types | keyvalue" [ngValue]="type.value">{{type.value}}</option>
+  </select>
+</div>
+<div class="grid-container">
+  <div class="grid-4 grid-sm-2 p-1 m-2 pos-relative" *ngFor="let pkmn of filteredPkmns">
+    <div title="{{pkmn.Name}}">
+      <span class="pos-absolute">{{pkmn.Number}}</span>
+      <img alt="{{pkmn.Name}}" class="image" src="assets/images/pokemon/{{pkmn.Number}}.png">
+    </div>
+  </div>
+</div>
